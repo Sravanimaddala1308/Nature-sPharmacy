@@ -1,1 +1,138 @@
-<h1>Hi hello <br>How r u?</h1>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Page</title>
+	<meta charset="UTF-8">
+	<style>
+		.messages{
+			background-color:#ff0020;
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+			border-radius:40px;
+			text-align:center;
+		}
+		#success
+		{
+			background-color:green;
+		}
+		#logo
+		{
+			color:#fddc5c;
+		}
+		body
+		{
+			background-image: linear-gradient(to right, 	rgb(118, 219, 209,0.1),	rgb(118, 219, 209,1));" ;
+		}
+             form {
+            display: flex; /* Display form inputs horizontally */
+            flex-direction: column; /* Align inputs in column initially */
+            align-items: center; /* Center align inputs horizontally */
+        }
+		
+		.files input {
+		    outline: 2px dashed #92b0b3;
+		    outline-offset: -10px;
+		    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		    padding: 120px 0px 85px 35%;
+		    text-align: center !important;
+		    margin: 0;
+		    height:250px;
+		    width: 100% !important;
+		}
+		.files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+		    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+		 }
+		.files{ position:relative}
+		.files:after {  pointer-events: none;
+		    position: absolute;
+		    top: 60px;
+		    left: 0;
+		    width: 50px;
+		    right: 0;
+		    height: 56px;
+		    content: "";
+		    background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+		    display: block;
+		    margin: 0 auto;
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		}
+		.color input{ background-color:#f1f1f1;}
+		.files:before {
+		    position: absolute;
+		    bottom: 10px;
+		    left: 0;  pointer-events: none;
+		    width: 100%;
+		    right: 0;
+		    height: 57px;
+		    content: " or drag it here. ";
+		    display: block;
+		    margin: 0 auto;
+		    color: #2ea591;
+		    font-weight: 600;
+		    text-transform: capitalize;
+		    text-align: center;
+		}
+.logo {
+            width: 1520px; /* Adjust width of logo */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 30px;
+        }
+ h2 {
+            text-align: center;
+            color: #333; /* Heading color */
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 30%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc; /* Input border color */
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 18%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Submit button background color */
+            color: #fff; /* Submit button text color */
+            cursor: pointer;
+        }
+	</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  
+    
+    <div class="container">
+        <img class="logo" src="/static/logo.jpg" alt="College Logo">
+        <h2>Registration</h2>
+        <form action="#" method="post">
+            <input type="text" name="fullname" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <input type="submit" value="Register">
+        </form>
+
+    </div>
+<div id="successMessage" class="messages" style="display: none;">Registration successful!</div>
+    </div>
+
+    <div id="successMessage" class="messages" style="display: none;">Registration successful! Redirecting to login page...</div>
+
+    <script>
+    function showSuccessMessage() {
+        document.getElementById("successMessage").style.display = "block";
+        console.log("Redirecting to login page..."); // Log message to the console for debugging
+        setTimeout(function() {
+            console.log("Redirecting now."); // Log message to the console for debugging
+            window.location.href = "login.html"; // Redirect to your login page
+        }, 3000); // 3000 milliseconds = 3 seconds, adjust as needed
+    }
+</script>
+</body>
+</html>

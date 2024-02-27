@@ -1,1 +1,131 @@
-<h1><i>Login😂</i></h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<meta charset="UTF-8">
+	<style>
+		.messages{
+			background-color:#ff0020;
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+			border-radius:40px;
+			text-align:center;
+		}
+		#success
+		{
+			background-color:green;
+		}
+		#logo
+		{
+			color:#fddc5c;
+		}
+		body
+		{
+			background-image: linear-gradient(to right, 	rgb(118, 219, 209,0.1),	rgb(118, 219, 209,1));" ;
+		}
+             form {
+            display: flex; /* Display form inputs horizontally */
+            flex-direction: column; /* Align inputs in column initially */
+            align-items: center; /* Center align inputs horizontally */
+        }
+		
+		.files input {
+		    outline: 2px dashed #92b0b3;
+		    outline-offset: -10px;
+		    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		    padding: 120px 0px 85px 35%;
+		    text-align: center !important;
+		    margin: 0;
+		    height:250px;
+		    width: 100% !important;
+		}
+		.files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+		    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+		 }
+		.files{ position:relative}
+		.files:after {  pointer-events: none;
+		    position: absolute;
+		    top: 60px;
+		    left: 0;
+		    width: 50px;
+		    right: 0;
+		    height: 56px;
+		    content: "";
+		    background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+		    display: block;
+		    margin: 0 auto;
+		    background-size: 100%;
+		    background-repeat: no-repeat;
+		}
+		
+.logo {
+            width: 1520px; /* Adjust width of logo */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 30px;
+        }
+ h2 {
+            text-align: center;
+            color: #333; /* Heading color */
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 25%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc; /* Input border color */
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 18%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Submit button background color */
+            color: #fff; /* Submit button text color */
+            cursor: pointer;
+        }
+	</style>
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="/static/logo.jpg" alt="College Logo">
+        <h2>Login</h2>
+        <form id="loginForm" method="post" onsubmit="return validateForm()">
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+        
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var errorDiv = document.getElementById("error");
+
+            // Simple email validation
+            if (!email.includes("@")) {
+                errorDiv.innerHTML = "Please enter a valid email address.";
+                return false;
+            }
+
+            // Password length validation
+            if (password.length < 6) {
+                errorDiv.innerHTML = "Password must be at least 6 characters long.";
+                return false;
+            }
+
+            // You can add more complex validation if needed
+
+            // If all validations pass, return true to submit the form
+            return true;
+        }
+    </script>
+</body>
+</html>
