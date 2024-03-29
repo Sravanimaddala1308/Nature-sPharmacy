@@ -36,29 +36,31 @@ async def chat(message:Message):
     return {"message": response}
 
 @app.post("/upload")
-async def upload_image(request: Request, name: str = Form(...),image: UploadFile = File(...)):
-    if image is not None and image.filename != '':
-        data["name"] = name 
+async def upload_image(request: Request,image: UploadFile = File(...)):
+    if image is not None :
+        # data["name"] = name 
         # Saving the uploaded image to the specified directory
         image_path = os.path.join('static', image.filename)
         with open(image_path, "wb") as f:
             shutil.copyfileobj(image.file, f)
         d = test_leaf(image_path)
+        
         data.update(d)
         context.append({"role": "system", "content": f"""Consider you are a chatbot.
-The details of the user are as follows and\
-The user provides an leaf image and the details from the leaf image are as follows:\
-{str(data)}.\
-Now act as a chatbot and answer questions asked by the user.\
-First, give the user the leaf report, then ask the user whether he/she has any questions.\
-Answer the questions wisely in short form.\
-Use the name of the user to interact.\
-If the user asks questions out of context - Simply warn him.\
-Now act as a chatbot and answer questions asked by the user.\
-First of all, greet the user with his name and show the result given in the leaf data."""})
+        The details of the user are as follows and\
+        The user provides an leaf image and the details from the leaf image are as follows:\
+        {str(data)}.\
+        Now act as a chatbot and answer questions asked by the user.\
+        First, give the user the leaf report, then ask the user whether he/she has any questions.\
+        Answer the questions wisely in short form.\
+        Use the name of the user to interact.\
+        If the user asks questions out of context - Simply warn him.\
+        Now act as a chatbot and answer questions asked by the user.\
+        First of all, greet the user with his name and show the result given in the leaf data."""})
         
         # Return a response with the processed image (and any other data)
-        return templates.TemplateResponse("index.html", {"request": request, "image_url":f'{image_path}',"path": '/static/output_image.jpg'})
+        
+        return templates.TemplateResponse("index.html", {"request": request, "image_url":f'{image_path}',"path": '/static/output_image.jpg',"name":d["Name of leaf"]})
     return templates.TemplateResponse("index.html", {"request": request, "error": "No image selected."})
 
 

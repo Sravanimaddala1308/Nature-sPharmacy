@@ -1,0 +1,8 @@
+uvicorn
+fastapi
+pillow
+torch
+torchvision
+efficientnet_pytorch
+openai==0.28
+python-multipart

@@ -49,8 +49,10 @@
             max-width: 400px;
             margin: 2rem 2rem 2rem 2rem; /* Adjusted margin to move form to the left */
             padding: 1rem;
-            border: 1px solid #ccc;
+            border: 1px solid #d87b7b;
+            border-width: 10px;
             border-radius: 8px;
+            background-color: rgb(76, 56, 80);
         }
         input, select, textarea {
             width: 100%;
@@ -106,34 +108,7 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
-        /* CSS for the radio buttons */
-        .gender {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .gender input[type="radio"] {
-            display: none;
-        }
-        .gender label {
-            margin-right: 10px;
-            cursor: pointer;
-        }
-        .gender label:before {
-            content: "";
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-            border: 2px solid #ccc;
-            border-radius: 50%;
-            vertical-align: middle;
-        }
-        .gender input[type="radio"]:checked + label:before {
-            background-color: #4CAF50;
-            border-color: #4CAF50;
-        }
+       
         /* CHATBOX
         =============== */
         .chatbox {
@@ -281,6 +256,7 @@
         }
         #imageContainer{
             margin-left: 90px;
+            
         }
 
         /* FOOTER */
@@ -384,18 +360,15 @@
     <div class="bottom-container">
         <div>
             <form id="formContainer" action="/upload" method="POST" enctype="multipart/form-data">
-                <h1 class="enter-details-heading">Please Enter Your Details</h1>
-                <label for="name" class="input-label"> NAME</label>
-                <input class="input-type" id="name" name="name" type="text" />
+                <h1 class="enter-details-heading">Please Enter  Details</h1>
+
             
-                
-            
-                <h1 class="upload-x-ray-heading">Upload X-ray</h1>
+                <h1 class="upload-x-ray-heading">Upload image of your leaf</h1>
                 <input class="input-file" type="file" id="image" name="image" onchange="previewImage(event)"/> 
 
-                <div class="image-preview" id="imagePreview">
+                <!-- <div class="image-preview" id="imagePreview">
                     <img src="" alt="Image Preview" width="200" height="200">
-                </div>
+                </div> -->
             
                 <button id="submit-button" type="submit">Submit</button>
             </form>
@@ -404,13 +377,19 @@
 
         <div id="imageContainer">
             {% if image_url %}
+                
                 <h2 style="color:#f0f0f0;">Uploaded Image:</h2>
-                <img src="{{image_url}}" alt="Uploaded Image" width="150" height="150">
+                <img src="{{image_url}}" alt="Uploaded Image" width="200" height="200">
+                <br>
             {% endif %}
-
+           
             {% if path %}
                 <h2 style="color:#f0f0f0;">Processed Image:</h2>
-                <img src="{{ path }}" alt="Processed Image" width="150" height="150">
+                <img src="{{ path }}" alt="Processed Image" width="200" height="200">
+            {% endif %}
+            {% if name%}
+                <h3 style="color:#f0f0f0;">Name of the plant is {{name}}</h3>
+                
             {% endif %}
 
             {% if error %}
@@ -429,7 +408,6 @@
                     </div>
                     <div class="chatbox__content--header">
                         <h4 class="chatbox__heading--header">Chat support</h4>
-                        <p class="chatbox__description--header">Powered by HealthAi</p>
                     </div>
                 </div>
                 <div class="chatbox__messages">

@@ -4,13 +4,15 @@
 
 
 
-.app-bg
-{
-    background-image: url('./healthAibgImage.jpg');
-    background-size: cover;
-     min-height: 100vh;
-}
 
+.app-bg {
+    /* Using a transparent background image */
+    background-image: url('./bg3.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    /* Adding transparency to the background image */
+    opacity: 0.9; /* Adjust the opacity value (0-1) for transparency */
+}
 .healthAi-heading{
     color: white;
     text-align: center;
@@ -28,6 +30,7 @@
     margin: 30px;
     padding: 30px;
     border: 2px solid red;
+    background-color: aqua;
 }
 #submit-button{
     background-color: #3B71CA;
